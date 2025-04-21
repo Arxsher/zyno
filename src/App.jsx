@@ -33,12 +33,11 @@ const App = () => {
     setIsLoading(true);
     setErrorMessage("");
 
-    console.log("API KEY:", import.meta.env.VITE_IMDB_API_KEY);
 
     try {
       const endpoint = query 
-      ? `${API_URL}/search/movie?query=${encodeURIComponent(query)}`
-      : `${API_URL}discover/movie?sort_by=popularity.desc`;
+  ? `${API_URL}search/movie?query=${encodeURIComponent(query)}&api_key=${API_KEY}`
+  : `${API_URL}discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`;
 
       const response = await fetch(endpoint, API_OPT);
 
