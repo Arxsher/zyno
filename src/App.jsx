@@ -32,6 +32,9 @@ const App = () => {
   const fetchMovies = async (query = '') => {
     setIsLoading(true);
     setErrorMessage("");
+
+    console.log("API KEY:", import.meta.env.VITE_IMDB_API_KEY);
+
     try {
       const endpoint = query 
       ? `${API_URL}/search/movie?query=${encodeURIComponent(query)}`
